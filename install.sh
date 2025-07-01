@@ -8,15 +8,15 @@ Install() {
 }
 
 Uninstall() {
-     do-something
+    # do-something
 }
 
 CleanData() {
-     do-something
+    # do-something
 }
 
-action=$1
-clean_data=$2
+action=$GM_APP_OPT_ACTION
+clean_data=$GM_UNINSTALL_CLEAN
 if [ "$action" == 'install' ]; then
     Install
 else

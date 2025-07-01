@@ -1,15 +1,16 @@
 """
 @文件        :__init__.py
-@说明        :This is an example
-@时间        :2025/06/30 09:17:23
-@作者        :xxx
-@邮箱        :
+@说明        :
+@时间        :2025/07/01 15:11:39
+@作者        :GM TEAM
+@邮箱        :team@gm.com
 @版本        :1.0.0
 """
 
-from simplejrpc import BaseForm,StringField
+from simplejrpc import BaseForm, StringField, RequireValidator
 
 from simplejrpc import TextMessage as _
+
 
 class ExampleForm(BaseForm):
     """ """
