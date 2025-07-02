@@ -59,6 +59,6 @@ mv "${DIST_NAME}.dist/${DIST_NAME}.bin" "${DIST_NAME}.dist/${DIST_NAME}"
 # 移动至最终目录
 echo "📁 拷贝编译产物到 $FINAL_DIST_DIR"
 mkdir -p "$FINAL_DIST_DIR"
-cp -r "${DIST_NAME}.dist" "$FINAL_DIST_DIR/backend"
+mv "${DIST_NAME}.dist" "$FINAL_DIST_DIR/backend/bin"
 
 echo "✅ 编译完成：$FINAL_DIST_DIR/${DIST_NAME}.dist/${DIST_NAME}"

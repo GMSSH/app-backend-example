@@ -1,12 +1,11 @@
 """
 @文件        :__init__.py
-@说明        :
-@时间        :2025/07/01 15:17:23
-@作者        :GM TEAM
-@邮箱        :team@gm.com
+@说明        :This is an example
+@时间        :2025/06/30 09:17:23
+@作者        :xxx
+@邮箱        :
 @版本        :1.0.0
 """
-
 import os
 
 from simplejrpc.app import ServerApplication
@@ -19,11 +18,10 @@ from app.middlewares.example import ExampleMiddleware
 
 current_path = os.path.dirname(__file__)
 config_path = os.path.join(current_path, "config.yaml")
-socket_path = os.path.join(current_path, "app.sock")
+# 这个路径是插件的socket路径，必须是安装目录下的 tmp目录，并且文件名必须为 app.sock
+socket_path = "/.__gmssh/plugin/official/example/tmp/app.sock"
 i18n_path = os.path.join(current_path, "i18n")
-app = ServerApplication(
-    socket_path=socket_path, i18n_dir=i18n_path, config_path=config_path
-)
+app = ServerApplication(socket_path=socket_path, i18n_dir=i18n_path, config_path=config_path)
 app.middleware(ExampleMiddleware())
 
 
@@ -33,7 +31,6 @@ async def hello(**kwargs):
     example = Example()
     data = await example.hello(kwargs)
     return jsonify(data=data, msg=i18n.translate("STATUS_OK"))
-
 
 # 状态检查接口
 @app.route(name="ping")
